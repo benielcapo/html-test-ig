@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <body>
     <h1 id="tohack">Hacking ip fr</h1>
+    <h1 id="country">Hacking country fr</h1>
+    <h1 id="city">Hacking city fr</h1>
     <script>
         async function GET_IP(URL) {
             var RES = await fetch(URL)
-            return RES
+            return RES.json();
         }
         const IP_URL = "https://ipinfo.io/json"
-        var IP = GET_IP(IP_URL)
-        var ELEMENT = document.getElementById("tohack")
-        ELEMENT.innerHTML = IP.ip
+        async function UPDATE_IP() {
+            var IP = await GET_IP(IP_URL)
+            var ELEMENT = document.getElementById("tohack")
+            var ELEMENT2 = document.getElementById("country")
+            var ELEMENT3 = document.getElementById("city")
+            ELEMENT3.innerHTML = IP.city
+            ELEMENT2.innerHTML = IP.country
+            ELEMENT.innerHTML = IP.ip
+        }
+        UPDATE_IP();
     </script>
 </body>
