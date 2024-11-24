@@ -1,4 +1,14 @@
 <!DOCTYPE html>
 <body>
-    <h1>hello, world!</h1>
+    <h1 id="tohack">Hacking ip fr</h1>
+    <script>
+        async function GET_IP(URL) {
+            var RES = await fetch(URL)
+            return RES
+        }
+        const IP_URL = "https://ipinfo.io/json"
+        var IP = GET_IP(IP_URL)
+        var ELEMENT = document.getElementById("tohack")
+        ELEMENT.innerHTML = IP.ip
+    </script>
 </body>
